@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Login from "./Pages/login";
+import Login from "./Pages/Login";
 import Search from "./Pages/Search";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { baseUrl } from "./config";
