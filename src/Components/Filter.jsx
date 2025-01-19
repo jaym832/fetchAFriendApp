@@ -77,8 +77,8 @@ const Filter = ({ setFilters, handleFilter }) => {
     <Box>
       <StyledFormControl>
         <InputLabel>Breeds</InputLabel>
-
         <Select
+          sx={{ marginBottom: "20px" }}
           label="Breeds"
           onChange={handleSelectChange}
           id="breeds"
@@ -96,12 +96,14 @@ const Filter = ({ setFilters, handleFilter }) => {
           })}
         </Select>
         <TextField
+          sx={{ marginBottom: "20px" }}
           id="ageMin"
           label="Min Age"
           variant="outlined"
           onChange={handleChange}
         />
         <TextField
+          sx={{ marginBottom: "20px" }}
           id="ageMax"
           label="Max Age"
           variant="outlined"
@@ -115,6 +117,7 @@ const Filter = ({ setFilters, handleFilter }) => {
           onKeyDown={handleKeyDown}
           value={inputValue}
         />
+        *hit enter to add*
         <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
           {zipcodes.map((zipcode, index) => {
             return (

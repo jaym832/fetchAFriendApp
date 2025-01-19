@@ -5,17 +5,9 @@ import DogCardContainer from "../Components/DogCardContainer";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid2";
 import axios from "axios";
-import {
-  Button,
-  Pagination,
-  Select,
-  MenuItem,
-  InputLabel,
-  FormControl,
-  NativeSelect,
-} from "@mui/material";
+import { Pagination, FormControl, NativeSelect } from "@mui/material";
 
-const Search = ({ loginSuccessful }) => {
+const Search = ({ loginSuccessful, addFavoriteDogs, favoriteDogs }) => {
   const [dogs, setDogs] = useState([]);
   const [totalDogs, setTotalDogs] = useState(0);
   const [page, setPage] = useState(0);
@@ -76,7 +68,6 @@ const Search = ({ loginSuccessful }) => {
   }, [loginSuccessful]);
 
   const handleFilter = () => {
-    // console.log("payload", filters);
     setPage(1);
     getDogs();
   };
@@ -97,19 +88,25 @@ const Search = ({ loginSuccessful }) => {
 
   //map dogs
   return loginSuccessful ? (
-    <Box>
+    <Box sx={{ marginTop: "50px" }}>
       <Grid container spacing={2}>
         <Grid size={4}>
           <Filter setFilters={setFilters} handleFilter={handleFilter} />
         </Grid>
         <Grid size={8}>
           <FormControl size="medium" sx={{ width: "25%" }}>
+            Sort Order:
             <NativeSelect onChange={handleSort}>
               <option value="asc">Asc</option>
               <option value="desc">Desc</option>
             </NativeSelect>
           </FormControl>
-          <DogCardContainer dogs={dogs} filters={filters} />
+          <DogCardContainer
+            dogs={dogs}
+            filters={filters}
+            addFavoriteDogs={addFavoriteDogs}
+            favoriteDogs={favoriteDogs}
+          />
           {totalDogs > filters.size && (
             <Pagination
               count={Math.ceil(totalDogs / filters.size)}
@@ -120,11 +117,10 @@ const Search = ({ loginSuccessful }) => {
             />
           )}
         </Grid>
-        {/* <Button onClick={sendPayload}>Filter</Button> */}
       </Grid>
     </Box>
   ) : (
-    <>please login</>
+    <>Please Login</>
   );
 };
 

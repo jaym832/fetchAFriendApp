@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -28,7 +27,6 @@ const StyledTextField = styled(TextField)`
 const StyledCard = styled(Card)``;
 
 const Login = ({ handleLogin }) => {
-  const [textState, setTextState] = useState("Standard");
   const [user, setUser] = useState({ name: "", email: "" });
 
   return (
