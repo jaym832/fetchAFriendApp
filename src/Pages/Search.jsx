@@ -88,13 +88,25 @@ const Search = ({ loginSuccessful, addFavoriteDogs, favoriteDogs }) => {
 
   //map dogs
   return loginSuccessful ? (
-    <Box sx={{ marginTop: "50px" }}>
+    <Box sx={{ marginTop: "90px", paddingLeft: "60px", width: "100vw" }}>
       <Grid container spacing={2}>
-        <Grid size={4}>
+        <Grid size={4} sx={{ width: "15%" }}>
           <Filter setFilters={setFilters} handleFilter={handleFilter} />
         </Grid>
         <Grid size={8}>
-          <FormControl size="medium" sx={{ width: "25%" }}>
+          <div style={{ justifyContent: "center" }}>
+            {totalDogs > filters.size && (
+              <Pagination
+                count={Math.ceil(totalDogs / filters.size)}
+                showFirstButton
+                showLastButton
+                onChange={(event, page) => handlePagination(page)}
+                page={page}
+                sx={{ float: "left" }}
+              />
+            )}
+          </div>
+          <FormControl size="medium" sx={{ width: "10%", float: "right" }}>
             Sort Order:
             <NativeSelect onChange={handleSort}>
               <option value="asc">Asc</option>
@@ -107,15 +119,6 @@ const Search = ({ loginSuccessful, addFavoriteDogs, favoriteDogs }) => {
             addFavoriteDogs={addFavoriteDogs}
             favoriteDogs={favoriteDogs}
           />
-          {totalDogs > filters.size && (
-            <Pagination
-              count={Math.ceil(totalDogs / filters.size)}
-              showFirstButton
-              showLastButton
-              onChange={(event, page) => handlePagination(page)}
-              page={page}
-            />
-          )}
         </Grid>
       </Grid>
     </Box>

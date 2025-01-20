@@ -11,7 +11,7 @@ const DogCardContainer = ({ dogs, filters, addFavoriteDogs, favoriteDogs }) => {
         width: "100%",
         display: "grid",
         gridTemplateColumns: "repeat(auto-fill, minmax(min(200px, 100%), 1fr))",
-        gap: 9,
+        gap: 8,
       }}
     >
       {dogs.map((dog) => {

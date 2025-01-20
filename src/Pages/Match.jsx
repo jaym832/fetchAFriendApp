@@ -23,11 +23,11 @@ const Match = ({ favoriteDogs }) => {
     }
   }, []);
   return (
-    <>
+    <div style={{ width: "100vw" }}>
       {matchDog?.id && (
         <Box
           sx={{
-            marginTop: "50px",
+            marginTop: "90px",
             display: "inline-block",
             justifyContent: "center",
             alignItems: "center",
@@ -58,7 +58,7 @@ const Match = ({ favoriteDogs }) => {
             </CardContent>
             <CardContent
               sx={{
-                width: "100px",
+                width: "200px",
                 marginBottom: "30px",
                 margin: "auto",
               }}
@@ -70,7 +70,7 @@ const Match = ({ favoriteDogs }) => {
           </Card>
         </Box>
       )}
-    </>
+    </div>
   );
 };
 

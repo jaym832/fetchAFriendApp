@@ -5,6 +5,7 @@ import styled from "styled-components";
 
 const StyledCard = styled(Card)`
   position: relative;
+  margin: 20px;
 `;
 const StyledCardContent = styled(CardContent)`
   position: absolute;

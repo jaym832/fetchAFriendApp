@@ -117,7 +117,7 @@ const Filter = ({ setFilters, handleFilter }) => {
           onKeyDown={handleKeyDown}
           value={inputValue}
         />
-        *hit enter to add*
+        <div style={{ margin: "10px" }}>*hit enter to add zipcode*</div>
         <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
           {zipcodes.map((zipcode, index) => {
             return (
@@ -125,11 +125,14 @@ const Filter = ({ setFilters, handleFilter }) => {
                 label={zipcode}
                 key={index}
                 onDelete={() => handleDeleteTag(zipcode)}
+                sx={{ marginBottom: "20px" }}
               />
             );
           })}
         </Box>
-        <Button onClick={handleFilter}>Filter</Button>
+        <Button variant="contained" color="primary" onClick={handleFilter}>
+          Filter
+        </Button>
       </StyledFormControl>
     </Box>
   );
